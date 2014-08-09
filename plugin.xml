@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cranberrygame.phonegap.plugin.ad.moceanjs"
+    version="1.0.8">
+	
+    <name>MoceanJS</name>
+    <description>MoceanJS</description>
+    <license>MIT</license>
+    <keywords>phonegap, moceanjs</keywords>
+    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.moceanjs</repo>
+ 	
+    <js-module src="www/moceanjs.js">
+        <clobbers target="window.moceanjs" />
+    </js-module>
+	
+    <!-- blackberry10 -->
+    <platform name="blackberry10">
+        <config-file target="www/config.xml" parent="/widget">
+			<feature id="blackberry.identity" />
+			<feature id="blackberry.system" />
+			<feature id="com.blackberry.community.deviceinfoplugin" />
+			<access uri="http://mocean.mobi" subdomains="true" />
+        </config-file>
+        <config-file target="www/config.xml" parent="/widget/rim:permissions">
+		  <rim:permit>read_cellular_data</rim:permit>
+        </config-file>
+    </platform>
+</plugin>
