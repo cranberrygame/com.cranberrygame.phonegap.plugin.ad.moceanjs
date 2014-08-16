@@ -30,7 +30,7 @@ var advertising = {
 	/* Populates a supplied divID with an ad based on the Mocean zoneId or, if that fails, default content defined in properties. */
 	banner: function (zoneId, divId, properties) {
 		var div, request, xhr, key, p;
-//alert(zoneId);//
+console.log("zoneId: "+zoneId);//cranberrygame
 		/* Retrieve the div and calculate its area; will be used when comparing image areas. */
 		div = document.querySelector('#' + divId);
 		div.offsetArea = div.offsetWidth * div.offsetHeight;
@@ -48,9 +48,9 @@ var advertising = {
 		request += '&libver=1.0.0.10'; /* Library version. */
 		request += '&envtype=ww'; /* Environment: WebWorks. */
 		request += '&udid=' + blackberry.identity.uuid; /*  Use unique identifier; not the PIN. */
-//alert("1: "+blackberry.identity.uuid);//
-//alert("2: "+community.deviceInfo);//
-//alert("3: "+community.deviceInfo.getMCC());//
+console.log("blackberry.identity.uuid: "+blackberry.identity.uuid);//cranberrygame
+console.log("community.deviceInfo: "+community.deviceInfo);//cranberrygame
+console.log("community.deviceInfo.getMCC(): "+community.deviceInfo.getMCC());//cranberrygame
 		/* community.deviceInfo will not be available in Ripple, so check and fallback if necessary. */
 		try {
 			if (community && community.deviceInfo) {
@@ -62,11 +62,9 @@ var advertising = {
 
 		/* Device languages. */
 		request += '&isolang=' + blackberry.system.region; /* Device locale language. */
-//		request += '&isolang=' + 'en'; /* Device locale language. */
 		request += '&language=' + blackberry.system.language; /* Device display language. */
-//		request += '&language=' + 'en'; /* Device display language. */
 
-//alert("4: "+request);//
+console.log("request: "+request);//cranberrygame
 		
 		/* Append additional request parameters. */
 		if (properties.params) {
@@ -86,7 +84,8 @@ var advertising = {
 		*/
 
 		/* Display the request for debugging purposes. */
-		advertising.log(request);
+		//advertising.log(request);//cranberrygame
+console.log("request: "+request);//cranberrygame
 
 		/* Create a new AJAX request. */
 		xhr = new XMLHttpRequest();
@@ -126,11 +125,11 @@ var advertising = {
 			
 				/* If the request returned an error, log the error. */
 				if (json.error) {
-					advertising.log(json);
-//alert("5: "+json.error);//	
+					//advertising.log(json);//cranberrygame
+console.log("json.error: "+json.error);//cranberrygame	
 				} else {
-					advertising.log(json);
-//alert("6: "+json.img.length);//	
+					//advertising.log(json);//cranberrygame
+console.log("json.img.length: "+json.img.length);//cranberrygame	
 					/* Loop through all the returned images. */
 					for (n = 0; n < json.img.length; ++n) {
 						path = json.img[n];
@@ -170,7 +169,7 @@ var advertising = {
 
 							/* Log the valid image. */
 							advertising.log(path + ': ' + offsetArea);
-//alert("33: "+path + ': ' + offsetArea);//							
+console.log(path + ': ' + offsetArea);//							
 						} catch (msg) {
 							/* Log errors or discarded images. */
 							advertising.log(msg);
