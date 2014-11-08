@@ -4,18 +4,27 @@
     id="com.cranberrygame.phonegap.plugin.ad.moceanjs"
     version="1.0.9">
 	
-    <name>MoceanJS</name>
-    <description>MoceanJS</description>
+    <name>Phonegap MoceanJS plugin</name>
+    <description>Phonegap MoceanJS plugin</description>
+    <author>Sang Ki Kwon (Cranberrygame)</author>		
     <license>MIT</license>
-    <keywords>phonegap, moceanjs</keywords>
+    <keywords>phonegap, plugin, ad, moceanjs</keywords>
     <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.moceanjs</repo>
- 	
+    <issue>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.moceanjs/issues</issue> 	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+	
     <js-module src="www/moceanjs.js">
         <clobbers target="window.moceanjs" />
     </js-module>
 	
     <!-- blackberry10 -->
     <platform name="blackberry10">
+		<dependency id="com.blackberry.identity@2.1.0" />
+		<dependency id="com.blackberry.system@1.0.0" />
+		<dependency id="com.blackberry.community.deviceinfoplugin@1.0.1" />
+		
         <config-file target="www/config.xml" parent="/widget">
 			<feature id="blackberry.identity" />
 			<feature id="blackberry.system" />
