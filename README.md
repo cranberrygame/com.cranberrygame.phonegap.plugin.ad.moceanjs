@@ -1,2 +1,2 @@
 
-# com.cranberrygame.phonegap.plugin.moceanjs
+# com.cranberrygame.cordova.plugin.ad.moceanjs
