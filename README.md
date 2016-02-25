@@ -1,2 +1,2 @@
 
-# com.cranberrygame.cordova.plugin.ad.moceanjs
+# cordova-plugin-ad-moceanjs

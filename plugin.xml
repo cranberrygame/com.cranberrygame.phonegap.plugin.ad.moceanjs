@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-ad-moceanjs"
-    version="1.0.29">
+    version="1.0.30">
 	
     <name>Cordova MoceanJS plugin</name>
     <description>Cordova MoceanJS plugin</description>
@@ -15,7 +15,7 @@
 	    <engine name="cordova" version=">=3.0.0" />
 	</engines>
 	
-    <js-module src="www/moceanjs.js">
+    <js-module src="www/moceanjs.js" name="moceanjs">
         <clobbers target="window.moceanjs" />
     </js-module>
 	
